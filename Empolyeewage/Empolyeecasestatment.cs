@@ -14,29 +14,28 @@ namespace Empolyeewage
         /// <param name="args">The arguments.</param>
         static void Main(string[] args)
         {
-            //UC3
-            int FullTime = 1, PartTime = 2;
+            //UC4
+            const int FullTime = 1, PartTime = 2;
             int empRatePerHr = 20;
             int empHrs = 0;
             int empWage = 0;
             Random random = new Random();
             int empInput = random.Next(0, 3);
 
-            //selection statement
-            if (FullTime == empInput)
+            switch (empInput)
             {
-                Console.WriteLine(" fulltime employee is present");
-                empHrs = 8;
-            }
-            else if (PartTime == empInput)
-            {
-                Console.WriteLine(" parttime employee is present");
-                empHrs = 4;
-            }
-            else
-            {
-                Console.WriteLine("employee is absent");
-                empHrs = 0;
+                case FullTime:
+                    Console.WriteLine(" fulltime employee is present");
+                    empHrs = 8;
+                    break;
+                case PartTime:
+                    Console.WriteLine(" parttime employee is present");
+                    empHrs = 4;
+                    break;
+                default:
+                    Console.WriteLine("employee is absent");
+                    empHrs = 0;
+                    break;
             }
             empWage = empRatePerHr * empHrs;
             Console.WriteLine("Daily employee wage:" + empWage);
